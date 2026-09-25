@@ -2,9 +2,11 @@
 install.packages('tidyverse')
 install.packages('Amelia')
 install.packages('corrplot')
+install.packages('themis')
 library(tidyverse)
 library(Amelia)
 library(corrplot)
+library(themis)
 #package installation
 df <- read.csv("C:/Users/User/Desktop/data analytics/Early Stage Diabetic Risk Prediction/dataset.csv")
 head(df)
@@ -17,8 +19,8 @@ colSums(is.na(df))
 missmap(df,main = "Missing Data Map",col=c("yellow", "black"),legend = TRUE)
 
 #distinguishing categorical and continuous value for EDA
-cat_df <- df['Age']
-cont_df <- df[,names(df)!='Age']
+cont_df <- df['Age']
+cat_df <- df[,names(df)!='Age']
 
 cat_df
 cont_df
@@ -39,4 +41,6 @@ df %>%
     x = "Class",
     y = "Count"
   )
+
+#categorical value visualization
 
